@@ -39,6 +39,7 @@ dependencies:
   bloc_test: ^9.1.7
   mockito: ^5.4.4
   get_storage: ^2.1.1
+  google_fonts: ^6.2.1
 
 dev_dependencies:
   flutter_test:
