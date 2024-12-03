@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
+import '../../../../resources/alert_dialogs/alert_dialogs.dart';
 import '../../../edit_product/views/edit_product_screen.dart';
 
 Widget myProductCart({required BuildContext context}) {
@@ -103,7 +104,12 @@ Widget myProductCart({required BuildContext context}) {
             width: 5,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => AlertDialogs(
+                child: Container(),
+              ),
+            ),
             icon: const Icon(
               Icons.delete,
               color: AppColor.subTitleColor,
