@@ -6,6 +6,7 @@ import '../../../core/utils/utils.dart';
 import '../../../resources/reusable_widgets/buttons/wide_button.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_password_field.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_text_field.dart';
+import 'signup_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -86,7 +87,10 @@ class _LogInScreenState extends State<LogInScreen> {
                     style: TStyle.subTitle(color: AppColor.subTitleColor),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SignupScreen()));
+                    },
                     child: Text(
                       'Signup',
                       style:
