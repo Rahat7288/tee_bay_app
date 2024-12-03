@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() {
+import 'core/local_storage/storage_service.dart';
+
+void main() async {
+  await StorageService.init();
+
   runApp(const MyApp());
 }
 
