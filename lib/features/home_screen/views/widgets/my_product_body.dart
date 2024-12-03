@@ -10,7 +10,7 @@ Widget myProductBody() => Container(
           height: 10,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return myProductCart();
+          return myProductCart(context: context);
         },
       ),
     );

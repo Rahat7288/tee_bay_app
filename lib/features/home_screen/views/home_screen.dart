@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  bool myProduct = false;
+  bool myProduct = true;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
           style: TStyle.subTitle(color: AppColor.titleTextColor),
         ),
       ),
-      body: myProduct ? myProductBody() : allProductBody(context: context),
+      body: myProduct ? myProductBody() : allProductBody(),
       floatingActionButton: myProduct
           ? FloatingActionButton(
               onPressed: () {},
