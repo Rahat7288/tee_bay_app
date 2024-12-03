@@ -7,12 +7,14 @@ const _textFont = GoogleFonts.inter;
 _textReturnElement({
   Color? color,
   double? fontSize,
+  double? lineHeight,
   FontWeight? fontWeight,
 }) {
   return _textFont(
     color: color,
     fontSize: fontSize,
     fontWeight: fontWeight,
+    height: lineHeight,
   );
 }
 
@@ -24,8 +26,8 @@ class TStyle {
   }) {
     return _textReturnElement(
       color: color ?? (whiteText ? AppColor.titleTextColor : Colors.black),
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontSize: 36,
+      fontWeight: FontWeight.w700,
     );
   }
 

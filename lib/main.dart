@@ -6,7 +6,7 @@ import 'package:tee_bay_app/core/app_theme/cubits/theme_state.dart';
 import 'package:tee_bay_app/core/app_theme/repository/theme_repository.dart';
 
 import 'core/local_storage/storage_service.dart';
-import 'features/auth/views/signin_screen.dart';
+import 'features/auth/views/login_screen.dart';
 
 void main() async {
   await StorageService.init();
