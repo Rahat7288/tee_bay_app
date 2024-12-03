@@ -52,82 +52,69 @@ class HomeScreen extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(14),
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Text(
+            title,
+            style: TStyle.title(),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
             children: [
               Text(
-                title,
-                style: TStyle.title(),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Row(
-                children: [
-                  Text(
-                    '$subTitle :',
-                    style: TStyle.subTitle(
-                      color: AppColor.subTitleColor,
-                    ),
-                  ),
-                  Text(subTitle),
-                ],
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Row(
-                children: [
-                  Text(
-                    '$price :',
-                    style: TStyle.subTitle(
-                      color: AppColor.subTitleColor,
-                    ),
-                  ),
-                  Text(price),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                content,
-                maxLines: 3,
-                textAlign: TextAlign.start,
-                overflow: TextOverflow.ellipsis,
-                style: TStyle.contentText(
-                  color: AppColor.contentTextColor,
+                '$subTitle :',
+                style: TStyle.subTitle(
+                  color: AppColor.subTitleColor,
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      postedDate,
-                      style: TStyle.subTitle(color: AppColor.subTitleColor),
-                    ),
-                  ),
-                  Text(
-                    views,
-                    style: TStyle.subTitle(color: AppColor.subTitleColor),
-                  ),
-                ],
-              )
+              Text(subTitle),
             ],
           ),
           const SizedBox(
-            width: 3,
+            height: 5,
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.delete,
+          Row(
+            children: [
+              Text(
+                '$price :',
+                style: TStyle.subTitle(
+                  color: AppColor.subTitleColor,
+                ),
+              ),
+              Text(price),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            content,
+            maxLines: 3,
+            textAlign: TextAlign.start,
+            overflow: TextOverflow.ellipsis,
+            style: TStyle.contentText(
+              color: AppColor.contentTextColor,
             ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  postedDate,
+                  style: TStyle.subTitle(color: AppColor.subTitleColor),
+                ),
+              ),
+              Text(
+                views,
+                style: TStyle.subTitle(color: AppColor.subTitleColor),
+              ),
+            ],
           )
         ],
       ),
