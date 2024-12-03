@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class ThemeState {
   final ThemeData themeData;
-  final bool isDarkTheme;
+  final bool isDarkMode;
+
   const ThemeState({
     required this.themeData,
-    required this.isDarkTheme,
+    required this.isDarkMode,
   });
 }

@@ -7,19 +7,21 @@ class ThemeCubit extends Cubit<ThemeState> {
   final ThemeRepository _repository;
 
   ThemeCubit(this._repository)
-      : super(ThemeState(
-          themeData: _repository.isDarkTheme
-              ? AppTheme.darkTheme
-              : AppTheme.lightTheme,
-          isDarkTheme: _repository.isDarkTheme,
-        ));
+      : super(
+          ThemeState(
+            themeData: _repository.isDarkMode
+                ? AppTheme.darkTheme
+                : AppTheme.lightTheme,
+            isDarkMode: _repository.isDarkMode,
+          ),
+        );
 
   void toggleTheme() {
-    final isDarkTheme = !_repository.isDarkTheme;
-    _repository.saveTheme(isDarkTheme);
+    final isDarkMode = !state.isDarkMode;
+    _repository.saveTheme(isDarkMode);
     emit(ThemeState(
-      themeData: isDarkTheme ? AppTheme.darkTheme : AppTheme.lightTheme,
-      isDarkTheme: isDarkTheme,
+      themeData: isDarkMode ? AppTheme.darkTheme : AppTheme.lightTheme,
+      isDarkMode: isDarkMode,
     ));
   }
 }
