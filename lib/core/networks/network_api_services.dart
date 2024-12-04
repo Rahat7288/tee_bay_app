@@ -59,9 +59,21 @@ class NeTworkApiServices extends BasApiServices {
   }
 
   @override
-  Future deleteApi(url, BuildContext context) {
-    // TODO: implement deleteApi
-    throw UnimplementedError();
+  Future deleteApi(url, BuildContext context) async {
+    if (kDebugMode) {
+      print(url);
+    }
+
+    Dio dio = Dio(await getBaseOptions());
+
+    dynamic responseJson;
+
+    try {
+      final response = await dio.delete(url);
+      responseJson = returnResponse(response, context);
+    } catch (e) {}
+
+    return responseJson;
   }
 
   @override
