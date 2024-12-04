@@ -65,9 +65,19 @@ class NeTworkApiServices extends BasApiServices {
   }
 
   @override
-  Future updateApi(payload, url, BuildContext context) {
-    // TODO: implement updateApi
-    throw UnimplementedError();
+  Future updateApi(payload, url, BuildContext context) async {
+    if (kDebugMode) {
+      print(url);
+      print(payload);
+    }
+    Dio dio = Dio(await getBaseOptions(query: payload));
+    dynamic responseJson;
+
+    try {
+      final response = await dio.put(url, data: payload);
+      responseJson = returnResponse(response, context);
+    } catch (e) {}
+    return responseJson;
   }
 
   dynamic returnResponse(Response response, context) async {
