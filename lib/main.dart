@@ -12,7 +12,9 @@ import 'features/create_product/view_models/services/form_list.dart';
 import 'features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await StorageService.init();
+
   final themeRepository = ThemeRepository(GetStorage());
 
   runApp(MyApp(
