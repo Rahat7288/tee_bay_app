@@ -20,6 +20,8 @@ _textReturnElement({
 
 class TStyle {
   //title text style==========
+  ///reusable text style class
+  ///can pass Color property or default color will added from themeData
   static TextStyle title({
     Color? color,
     bool whiteText = false,

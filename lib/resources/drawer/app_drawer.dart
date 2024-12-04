@@ -7,6 +7,7 @@ import 'package:tee_bay_app/core/text_style/text_style.dart';
 import '../../features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart';
 import '../reusable_widgets/buttons/wide_button.dart';
 
+///Custom app drawer for home screen appBar.
 Widget appDrawer({required BuildContext context}) => Container(
       color: AppColor.backGroundColor,
       height: MediaQuery.of(context).size.height,
@@ -65,9 +66,11 @@ Widget appDrawer({required BuildContext context}) => Container(
             ),
             child: Column(
               children: [
+                ///Custom Button for my product body on home screen
+                ///state managed by homeScreenCubit (features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart)
                 wideButton(
                   press: () {
-                    context.read<HomeScreenCubit>().toggleToMtProduct();
+                    context.read<HomeScreenCubit>().toggleToMyProduct();
                   },
                   width: MediaQuery.of(context).size.width,
                   buttonName: 'My Products',
@@ -77,6 +80,9 @@ Widget appDrawer({required BuildContext context}) => Container(
                 const SizedBox(
                   height: 10,
                 ),
+
+                ///Custom Button for all product body on home screen
+                ///state managed by homeScreenCubit (features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart)
                 wideButton(
                   press: () {
                     context.read<HomeScreenCubit>().toggleToAllProduct();
@@ -89,6 +95,8 @@ Widget appDrawer({required BuildContext context}) => Container(
                 const SizedBox(
                   height: 10,
                 ),
+
+                ///custom button to navigate user on my cart screen
                 wideButton(
                   press: () {},
                   width: MediaQuery.of(context).size.width,
@@ -102,6 +110,9 @@ Widget appDrawer({required BuildContext context}) => Container(
           SizedBox(
             height: MediaQuery.of(context).size.height * .3,
           ),
+
+          ///Custom button for user logout
+          ///state managed by AuthCubit
           Align(
             alignment: Alignment.bottomCenter,
             child: wideButton(

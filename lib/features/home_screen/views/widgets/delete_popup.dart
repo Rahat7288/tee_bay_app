@@ -4,6 +4,8 @@ import 'package:tee_bay_app/core/text_style/text_style.dart';
 
 import '../../../../resources/reusable_widgets/buttons/small_button.dart';
 
+///delete popup body to delete specific product
+
 Widget deletePopup() => SizedBox(
       child: Column(
         children: [
