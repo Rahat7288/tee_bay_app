@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../app_exceptions/app_exceptions.dart';
 import 'base_api_services.dart';
 
 class NeTworkApiServices extends BasApiServices {
@@ -38,7 +41,11 @@ class NeTworkApiServices extends BasApiServices {
     try {
       Response response = await dio.get(url, data: data);
       responseJson = returnResponse(response, context);
-    } catch (e) {}
+    } on SocketException {
+      throw InternetException();
+    } catch (e) {
+      throw 'Post APi error : ${e.toString()}';
+    }
 
     return responseJson;
   }
@@ -55,7 +62,9 @@ class NeTworkApiServices extends BasApiServices {
       final response = await dio.post(url, data: payload);
 
       responseJson = returnResponse(response, context);
-    } catch (e) {}
+    } catch (e) {
+      throw 'Post APi error : ${e.toString()}';
+    }
     return responseJson;
   }
 
@@ -72,7 +81,9 @@ class NeTworkApiServices extends BasApiServices {
     try {
       final response = await dio.delete(url);
       responseJson = returnResponse(response, context);
-    } catch (e) {}
+    } catch (e) {
+      throw 'Delete APi error : ${e.toString()}';
+    }
 
     return responseJson;
   }
@@ -89,7 +100,9 @@ class NeTworkApiServices extends BasApiServices {
     try {
       final response = await dio.put(url, data: payload);
       responseJson = returnResponse(response, context);
-    } catch (e) {}
+    } catch (e) {
+      throw 'Update APi error : ${e.toString()}';
+    }
     return responseJson;
   }
 
@@ -111,6 +124,8 @@ class NeTworkApiServices extends BasApiServices {
         return responseJson;
 
       default:
+        throw FetchDataException(
+            'Error while communicating with server ${response.statusCode.toString()}');
     }
   }
 }
