@@ -4,6 +4,7 @@ import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
 import '../../../../resources/alert_dialogs/alert_dialogs.dart';
 import '../../../edit_product/views/edit_product_screen.dart';
+import 'delete_popup.dart';
 
 Widget myProductCart({required BuildContext context}) {
   String title = 'Title';
@@ -107,7 +108,7 @@ Widget myProductCart({required BuildContext context}) {
             onPressed: () => showDialog(
               context: context,
               builder: (BuildContext context) => AlertDialogs(
-                child: Container(),
+                child: deletePopup(),
               ),
             ),
             icon: const Icon(

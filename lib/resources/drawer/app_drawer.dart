@@ -88,7 +88,7 @@ Widget appDrawer({required BuildContext context}) => Container(
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * .4,
+            height: MediaQuery.of(context).size.height * .3,
           ),
           Align(
             alignment: Alignment.bottomCenter,

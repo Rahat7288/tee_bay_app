@@ -6,6 +6,8 @@ import 'package:tee_bay_app/core/app_theme/cubits/theme_state.dart';
 import 'package:tee_bay_app/core/app_theme/repository/theme_repository.dart';
 
 import 'core/local_storage/storage_service.dart';
+import 'features/create_product/view_models/cubits/progress_cubit.dart';
+import 'features/create_product/view_models/services/form_list.dart';
 import 'features/home_screen/views/home_screen.dart';
 
 void main() async {
@@ -20,7 +22,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   final ThemeRepository themeRepository;
 
-  const MyApp({super.key, required this.themeRepository});
+  MyApp({super.key, required this.themeRepository});
 
   // This widget is the root of your application.
   @override
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (_) => ThemeCubit(themeRepository),
           ),
+          BlocProvider(
+              create: (context) => ProgressCubit(totalSteps: fromSteps.length)),
         ],
         child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {
