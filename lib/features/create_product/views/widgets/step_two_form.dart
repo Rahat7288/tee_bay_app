@@ -11,13 +11,17 @@ class StepTwoForm extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             'Select categories',
             style: TStyle.title(
               color: AppColor.titleTextColor,
             ),
-          )
+          ),
+          const SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );
