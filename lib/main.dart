@@ -6,9 +6,9 @@ import 'package:tee_bay_app/core/app_theme/cubits/theme_state.dart';
 import 'package:tee_bay_app/core/app_theme/repository/theme_repository.dart';
 
 import 'core/local_storage/storage_service.dart';
+import 'features/auth/views/login_screen.dart';
 import 'features/create_product/view_models/cubits/progress_cubit.dart';
 import 'features/create_product/view_models/services/form_list.dart';
-import 'features/home_screen/views/home_screen.dart';
 
 void main() async {
   await StorageService.init();
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: state.themeData,
-              home: HomeScreen(),
+              home: LogInScreen(),
             );
           },
         ));

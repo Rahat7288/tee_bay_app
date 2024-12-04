@@ -6,6 +6,7 @@ import '../../../core/utils/utils.dart';
 import '../../../resources/reusable_widgets/buttons/wide_button.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_password_field.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_text_field.dart';
+import '../../home_screen/views/home_screen.dart';
 import 'signup_screen.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -71,7 +72,13 @@ class _LogInScreenState extends State<LogInScreen> {
                 height: 50,
               ),
               wideButton(
-                press: () {},
+                press: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                },
                 buttonName: 'LOGIN',
                 backgroundColor: AppColor.primaryButtonColor,
                 forgroundColor: AppColor.buttonTextColor,
