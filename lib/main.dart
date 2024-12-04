@@ -9,6 +9,7 @@ import 'core/data/local_storage/storage_service.dart';
 import 'features/auth/views/login_screen.dart';
 import 'features/create_product/view_models/cubits/progress_cubit.dart';
 import 'features/create_product/view_models/services/form_list.dart';
+import 'features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart';
 
 void main() async {
   await StorageService.init();
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
               create: (context) => ProgressCubit(totalSteps: fromSteps.length)),
+          BlocProvider(create: (context) => HomeScreenCubit())
         ],
         child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {
