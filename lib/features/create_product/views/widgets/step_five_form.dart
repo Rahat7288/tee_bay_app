@@ -36,7 +36,7 @@ class _StepFiveFormState extends State<StepFiveForm> {
           const SizedBox(
             height: 50,
           ),
-          customInputField(
+          CustomTextField(
             controller: _priceController,
             type: TextInputType.text,
             labelText: 'Purchase Price',
@@ -57,7 +57,7 @@ class _StepFiveFormState extends State<StepFiveForm> {
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width * .6,
-            child: customInputField(
+            child: CustomTextField(
               controller: _priceController,
               type: TextInputType.text,
               labelText: 'Rent Price',

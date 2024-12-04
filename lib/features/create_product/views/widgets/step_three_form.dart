@@ -12,23 +12,25 @@ class StepThreeForm extends StatelessWidget {
     final _descriptionController = TextEditingController();
     return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Add Description',
-            style: TStyle.title(
-              color: AppColor.titleTextColor,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Add Description',
+              style: TStyle.title(
+                color: AppColor.titleTextColor,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          customMultilineTextField(
-            controller: _descriptionController,
-            onChanged: (String value) {},
-          ),
-        ],
+            const SizedBox(
+              height: 50,
+            ),
+            customMultilineTextField(
+              controller: _descriptionController,
+              onChanged: (String value) {},
+            ),
+          ],
+        ),
       ),
     );
   }

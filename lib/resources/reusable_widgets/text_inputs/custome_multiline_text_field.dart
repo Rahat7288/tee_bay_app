@@ -13,7 +13,7 @@ Widget customMultilineTextField({
   minLines,
   maxLines,
 }) =>
-    TextField(
+    TextFormField(
       controller: controller,
       minLines: minLines ?? 6,
       maxLines: maxLines ?? 8,

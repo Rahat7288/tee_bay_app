@@ -50,7 +50,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(
                     height: 30,
                   ),
-                  customInputField(
+                  CustomTextField(
                     controller: _firstNameController,
                     type: TextInputType.text,
                     labelText: 'First Name',
@@ -60,7 +60,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  customInputField(
+                  CustomTextField(
                     controller: _lastNameController,
                     type: TextInputType.text,
                     labelText: 'last Name',
@@ -70,7 +70,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  customInputField(
+                  CustomTextField(
                     controller: _addressController,
                     type: TextInputType.text,
                     labelText: 'Address',
@@ -80,9 +80,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  customInputField(
+                  CustomTextField(
                     controller: _phoneController,
-                    type: TextInputType.text,
+                    type: TextInputType.phone,
                     labelText: 'Phone Number',
                     hintText: 'phone Number',
                     onChanged: (String value) {},

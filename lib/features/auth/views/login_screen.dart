@@ -44,7 +44,7 @@ class _LogInScreenState extends State<LogInScreen> {
               SizedBox(
                 height: mHeight * .15,
               ),
-              customInputField(
+              CustomTextField(
                 controller: _inputController,
                 type: TextInputType.text,
                 labelText: 'User Name',

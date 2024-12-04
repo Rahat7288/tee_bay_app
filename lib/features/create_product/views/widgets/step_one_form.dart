@@ -24,7 +24,7 @@ class StepOneForm extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          customInputField(
+          CustomTextField(
             controller: _titleController,
             type: TextInputType.text,
             labelText: 'Product Title',

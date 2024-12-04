@@ -12,6 +12,7 @@ class ProgressBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LinearProgressIndicator(
+      borderRadius: BorderRadius.circular(14),
       minHeight: 20,
       value: (currentStep + 1) / fromSteps.length,
       backgroundColor: Colors.grey[300],
