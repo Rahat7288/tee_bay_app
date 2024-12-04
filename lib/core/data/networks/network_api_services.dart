@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:tee_bay_app/core/networks/base_api_services.dart';
+
+import 'base_api_services.dart';
 
 class NeTworkApiServices extends BasApiServices {
   static Future<BaseOptions> getBaseOptions(
