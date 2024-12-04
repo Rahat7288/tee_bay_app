@@ -4,12 +4,24 @@ import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
 import '../../../../resources/reusable_widgets/text_inputs/custom_text_field.dart';
 
-class StepFiveForm extends StatelessWidget {
+class StepFiveForm extends StatefulWidget {
   const StepFiveForm({super.key});
 
   @override
+  State<StepFiveForm> createState() => _StepFiveFormState();
+}
+
+class _StepFiveFormState extends State<StepFiveForm> {
+  @override
   Widget build(BuildContext context) {
     final _priceController = TextEditingController();
+    const List<String> list = <String>[
+      'Per day',
+      'Per Week',
+      'Per Month',
+      'Year'
+    ];
+    String dropdownValue = list.first;
     return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
       child: Column(
@@ -52,6 +64,22 @@ class StepFiveForm extends StatelessWidget {
               hintText: 'Rent Price',
               onChanged: (String value) {},
             ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          DropdownMenu<String>(
+            initialSelection: list.first,
+            onSelected: (String? value) {
+              // This is called when the user selects an item.
+              setState(() {
+                dropdownValue = value!;
+              });
+            },
+            dropdownMenuEntries:
+                list.map<DropdownMenuEntry<String>>((String value) {
+              return DropdownMenuEntry<String>(value: value, label: value);
+            }).toList(),
           ),
         ],
       ),

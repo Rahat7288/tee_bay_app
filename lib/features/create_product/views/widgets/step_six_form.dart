@@ -11,13 +11,60 @@ class StepSixForm extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Summary',
             style: TStyle.title(
               color: AppColor.titleTextColor,
             ),
-          )
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Text(
+            'Title: ',
+            style: TStyle.subTitle(color: AppColor.subTitleColor),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Categories: ',
+            style: TStyle.subTitle(color: AppColor.subTitleColor),
+          ),
+          Text(
+            'Electronics, Toys',
+            style: TStyle.subTitle(color: AppColor.subTitleColor),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Descriptions',
+            style: TStyle.subTitle(color: AppColor.subTitleColor),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            'Price:',
+            style: TStyle.subTitle(color: AppColor.subTitleColor),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            'To rent:',
+            style: TStyle.subTitle(color: AppColor.subTitleColor),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            'per day:',
+            style: TStyle.subTitle(color: AppColor.subTitleColor),
+          ),
         ],
       ),
     );

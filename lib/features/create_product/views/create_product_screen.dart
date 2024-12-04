@@ -61,7 +61,9 @@ class CreateProductScreen extends StatelessWidget {
                           ),
                     smallButton(
                       press: () => context.read<ProgressCubit>().nextStep(),
-                      buttonName: 'Next',
+                      buttonName: state.currentStep + 1 == fromSteps.length
+                          ? 'Submit'
+                          : 'Next',
                       width: 150.0,
                       backgroundColor: AppColor.primaryButtonColor,
                       forgroundColor: AppColor.backGroundColor,
