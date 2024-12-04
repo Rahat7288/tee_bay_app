@@ -90,7 +90,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  customPasswordField(
+                  CustomPasswordField(
                       controller: _passwordController,
                       labelText: 'Password',
                       hintText: 'Password',
@@ -107,7 +107,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  customPasswordField(
+                  CustomPasswordField(
                       controller: _confirmPasswordController,
                       labelText: 'Confirm Password',
                       hintText: 'Confirm Password',
