@@ -23,4 +23,10 @@ class AuthRepositoryImpl implements AuthRepository {
     // TODO: implement logout
     throw UnimplementedError();
   }
+
+  @override
+  Future signup({context, payload}) {
+    // TODO: implement signup
+    throw UnimplementedError();
+  }
 }

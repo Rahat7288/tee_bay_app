@@ -22,7 +22,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-  final _signUpontroller = GlobalKey<FormState>();
+  final _signUpController = GlobalKey<FormState>();
   bool isObscure = true;
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _SignupScreenState extends State<SignupScreen> {
             width: mWidth,
             child: SingleChildScrollView(
               child: Form(
-                key: _signUpontroller,
+                key: _signUpController,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -130,7 +130,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     wideButton(
                       press: () {
-                        if (_signUpontroller.currentState!.validate()) {
+                        if (_signUpController.currentState!.validate()) {
                           Utils.customSnackBar(
                               context: context,
                               snackText: 'User Registration Successfully');
