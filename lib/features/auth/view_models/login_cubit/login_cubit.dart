@@ -27,10 +27,12 @@ class LoginCubit extends Cubit<LoginState> {
       if (kDebugMode) {
         print("login value $value");
       }
-      if (value['message'] == "Login successful") {
-        emit(LoginSuccess(loginResponseModel: value));
+      if (value.message == "Login successful") {
+        emit(LoginSuccess(loginResponseModel: value!));
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+      } else {
+        emit(LoginFailure(message: 'Invalid user '));
       }
     }).onError((error, stackTrace) {
       emit(LoginFailure(message: error.toString()));
