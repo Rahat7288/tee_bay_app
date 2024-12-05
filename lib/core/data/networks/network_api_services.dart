@@ -17,7 +17,6 @@ class NetworkApiServices extends BasApiServices {
           return status != 401 && status! < 550;
         },
         queryParameters: query,
-        baseUrl: "",
         headers: {
           "Accept": "application/json",
           "Content-type": "application/json",
@@ -60,6 +59,10 @@ class NetworkApiServices extends BasApiServices {
     dynamic responseJson;
     try {
       final response = await dio.post(url, data: payload);
+
+      if (kDebugMode) {
+        print("post response${response.statusCode}");
+      }
 
       responseJson = returnResponse(response, context);
     } catch (e) {

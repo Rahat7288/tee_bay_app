@@ -7,6 +7,7 @@ import 'package:tee_bay_app/core/app_theme/repository/theme_repository.dart';
 
 import 'core/data/local_storage/storage_service.dart';
 import 'features/auth/view_models/login_cubit/login_cubit.dart';
+import 'features/auth/view_models/signup_cubit/signup_cubit.dart';
 import 'features/auth/views/login_screen.dart';
 import 'features/create_product/view_models/cubits/progress_cubit.dart';
 import 'features/create_product/view_models/services/form_list.dart';
@@ -31,8 +32,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [
+    return MultiBlocListener(
+        listeners: [
           BlocProvider(
             create: (_) => ThemeCubit(themeRepository),
           ),
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
               create: (context) => ProgressCubit(totalSteps: fromSteps.length)),
           BlocProvider(create: (context) => HomeScreenCubit()),
           BlocProvider(create: (context) => LoginCubit()),
+          BlocProvider(create: (context) => SignupCubit()),
         ],
         child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {
