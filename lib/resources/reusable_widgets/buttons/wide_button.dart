@@ -3,6 +3,8 @@ import 'package:tee_bay_app/core/text_style/text_style.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 
+///reusable wide button with default width = 200 and height = 50
+
 Widget wideButton({
   required Function() press,
   required String buttonName,

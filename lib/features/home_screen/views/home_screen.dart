@@ -19,6 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ///single screen will manage the my product body and all product body
     return BlocBuilder<HomeScreenCubit, HomeScreenState>(
       builder: (context, state) {
         return Scaffold(
@@ -28,11 +29,16 @@ class HomeScreen extends StatelessWidget {
           ),
           appBar: AppBar(
             title: Text(
+              ///managing app title based on user preference
               state.myProduct ? 'MY PRODUCT' : 'ALL PRODUCTS',
               style: TStyle.subTitle(color: AppColor.titleTextColor),
             ),
           ),
+
+          ///contain the body widget based on user preference
           body: state.myProduct ? myProductBody() : allProductBody(),
+
+          ///floating action button will only appear if the state is my product = true
           floatingActionButton: myProduct
               ? FloatingActionButton(
                   onPressed: () {

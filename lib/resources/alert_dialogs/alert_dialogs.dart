@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+///reusable alertDialog
+///required parameter is child widget (alertDialog body)
+
 class AlertDialogs extends StatelessWidget {
   const AlertDialogs({super.key, required this.child});
 

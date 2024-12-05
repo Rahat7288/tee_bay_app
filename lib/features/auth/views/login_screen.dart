@@ -19,6 +19,7 @@ class LogInScreen extends StatefulWidget {
 class _LogInScreenState extends State<LogInScreen> {
   final _inputController = TextEditingController();
   final _passWordController = TextEditingController();
+  final _loginForm = GlobalKey<FormState>();
   bool isObscure = true;
   @override
   Widget build(BuildContext context) {
@@ -33,80 +34,85 @@ class _LogInScreenState extends State<LogInScreen> {
         body: SizedBox(
           height: mHeight,
           width: mWidth,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'SIGN IN',
-                style: TStyle.title(),
-              ),
-              SizedBox(
-                height: mHeight * .15,
-              ),
-              CustomTextField(
-                controller: _inputController,
-                type: TextInputType.text,
-                labelText: 'User Name',
-                hintText: 'User Name',
-                onChanged: (String value) {},
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              CustomPasswordField(
-                  controller: _passWordController,
-                  labelText: 'Password',
-                  hintText: 'Password',
-                  isObscure: isObscure,
-                  suffixIcon:
-                      isObscure ? Icons.visibility_off : Icons.visibility,
+          child: Form(
+            key: _loginForm,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'SIGN IN',
+                  style: TStyle.title(),
+                ),
+                SizedBox(
+                  height: mHeight * .15,
+                ),
+                CustomTextField(
+                  controller: _inputController,
+                  type: TextInputType.text,
+                  labelText: 'User Name',
+                  hintText: 'User Name',
                   onChanged: (String value) {},
-                  textInputAction: TextInputAction.done,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                CustomPasswordField(
+                    controller: _passWordController,
+                    labelText: 'Password',
+                    hintText: 'Password',
+                    isObscure: isObscure,
+                    suffixIcon:
+                        isObscure ? Icons.visibility_off : Icons.visibility,
+                    onChanged: (String value) {},
+                    textInputAction: TextInputAction.done,
+                    press: () {
+                      setState(() {
+                        isObscure = !isObscure;
+                      });
+                    }),
+                const SizedBox(
+                  height: 50,
+                ),
+                wideButton(
                   press: () {
-                    setState(() {
-                      isObscure = !isObscure;
-                    });
-                  }),
-              const SizedBox(
-                height: 50,
-              ),
-              wideButton(
-                press: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                    if (_loginForm.currentState!.validate()) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
+                      );
+                    }
+                  },
+                  buttonName: 'LOGIN',
+                  backgroundColor: AppColor.primaryButtonColor,
+                  forgroundColor: AppColor.buttonTextColor,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account?",
+                      style: TStyle.subTitle(color: AppColor.subTitleColor),
                     ),
-                  );
-                },
-                buttonName: 'LOGIN',
-                backgroundColor: AppColor.primaryButtonColor,
-                forgroundColor: AppColor.buttonTextColor,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    style: TStyle.subTitle(color: AppColor.subTitleColor),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SignupScreen()));
-                    },
-                    child: Text(
-                      'Signup',
-                      style:
-                          TStyle.subTitle(color: AppColor.primaryButtonColor),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const SignupScreen()));
+                      },
+                      child: Text(
+                        'Signup',
+                        style:
+                            TStyle.subTitle(color: AppColor.primaryButtonColor),
+                      ),
                     ),
-                  ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

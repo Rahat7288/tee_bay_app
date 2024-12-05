@@ -6,6 +6,7 @@ import 'package:tee_bay_app/core/app_theme/cubits/theme_state.dart';
 import 'package:tee_bay_app/core/app_theme/repository/theme_repository.dart';
 
 import 'core/data/local_storage/storage_service.dart';
+import 'features/auth/view_models/login_cubit/login_cubit.dart';
 import 'features/auth/views/login_screen.dart';
 import 'features/create_product/view_models/cubits/progress_cubit.dart';
 import 'features/create_product/view_models/services/form_list.dart';
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
               create: (context) => ProgressCubit(totalSteps: fromSteps.length)),
-          BlocProvider(create: (context) => HomeScreenCubit())
+          BlocProvider(create: (context) => HomeScreenCubit()),
+          BlocProvider(create: (context) => LoginCubit()),
         ],
         child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {

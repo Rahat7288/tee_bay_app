@@ -6,6 +6,8 @@ class Utils {
     SystemChannels.textInput.invokeMethod('TextInput.hide');
   }
 
+  ///reusable custom snackBar required parameter context and text for snackBar
+  ///default snack duration is 3 seconds
   static void customSnackBar({
     required context,
     required String snackText,
