@@ -7,7 +7,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import '../app_exceptions/app_exceptions.dart';
 import 'base_api_services.dart';
 
-class NeTworkApiServices extends BasApiServices {
+class NetworkApiServices extends BasApiServices {
   static Future<BaseOptions> getBaseOptions(
       {Map<String, dynamic>? query}) async {
     BaseOptions options = BaseOptions(

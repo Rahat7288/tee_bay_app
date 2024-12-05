@@ -131,6 +131,9 @@ class _SignupScreenState extends State<SignupScreen> {
                     wideButton(
                       press: () {
                         if (_signUpontroller.currentState!.validate()) {
+                          Utils.customSnackBar(
+                              context: context,
+                              snackText: 'User Registration Successfully');
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => HomeScreen(),
