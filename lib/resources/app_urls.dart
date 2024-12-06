@@ -5,4 +5,8 @@ class AppUrls {
 
   ///product related APIS============
   static const String productCategories = "$baseUrl/products/categories/";
+  static const String products = "$baseUrl/products/";
+
+  ///purchases related APIS============
+  static const String transactionPurchases = "$baseUrl/transactions/purchases/";
 }
