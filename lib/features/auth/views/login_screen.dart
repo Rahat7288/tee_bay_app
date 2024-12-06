@@ -8,6 +8,7 @@ import '../../../resources/reusable_widgets/buttons/wide_button.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_password_field.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_text_field.dart';
 import '../../../services/utils/utils.dart';
+import '../../home_screen/views/home_screen.dart';
 import '../view_models/login_cubit/login_cubit.dart';
 import '../view_models/login_cubit/login_state.dart';
 import 'signup_screen.dart';
@@ -90,9 +91,9 @@ class _LogInScreenState extends State<LogInScreen> {
                           context
                               .read<LoginCubit>()
                               .login(email, password, context);
-                          //Navigator.of(context).push(MaterialPageRoute(
-                          //  builder: (context) => HomeScreen()));
                         }
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => HomeScreen()));
                       },
                       buttonName: 'LOGIN',
                       backgroundColor: AppColor.primaryButtonColor,
