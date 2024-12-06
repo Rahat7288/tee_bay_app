@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tee_bay_app/core/utils/utils.dart';
 
+import '../../../../services/utils/utils.dart';
 import '../../../home_screen/views/home_screen.dart';
 import '../../repositories/auth_repository/auth_repository_impl.dart';
 import 'login_state.dart';

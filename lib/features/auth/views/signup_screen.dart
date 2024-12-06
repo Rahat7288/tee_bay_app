@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/text_style/text_style.dart';
-import '../../../core/utils/utils.dart';
 import '../../../resources/reusable_widgets/buttons/wide_button.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_password_field.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_text_field.dart';
+import '../../../services/utils/utils.dart';
 import '../view_models/signup_cubit/signup_cubit.dart';
 import '../view_models/signup_cubit/signup_state.dart';
 

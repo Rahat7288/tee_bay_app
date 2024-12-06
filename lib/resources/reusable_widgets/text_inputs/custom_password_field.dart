@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/form_validation_maxin.dart';
+import '../../../services/utils/form_validation_maxin.dart';
 
 class CustomPasswordField extends StatelessWidget with FormValidationMixin {
   const CustomPasswordField(
