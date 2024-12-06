@@ -1,77 +1,67 @@
-import 'dart:convert' as convert;
+import 'dart:convert';
 
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
 
-import '../app_exceptions/app_exceptions.dart';
-import 'base_api_services.dart';
+import 'base_api_service_http.dart';
 
-class NetworkApiServicesHttp extends BasApiServices {
-  ///get request api ============
+class NetworkApiServicesHttp extends BaseNetworkService {
   @override
-  Future<dynamic> getApi(String url, data, BuildContext context) async {
+  Future<dynamic> getRequest(String url, {Map<String, String>? headers}) async {
     try {
-      final response = await http.get(
-        Uri.parse(url),
-        headers: data,
-      );
-      return returnResponse(response);
+      final response = await http.get(Uri.parse(url), headers: headers);
+      return _handleResponse(response);
     } catch (e) {
       rethrow;
     }
   }
 
-  ///post request api ============
   @override
-  Future<dynamic> postApi(payload, url, BuildContext context) async {
+  Future<dynamic> postRequest(String url,
+      {Map<String, String>? headers, Map<String, dynamic>? body}) async {
     try {
       final response = await http.post(
         Uri.parse(url),
-        body: payload,
+        headers: headers,
+        body: body != null ? jsonEncode(body) : null,
       );
-      return returnResponse(response);
+      return _handleResponse(response);
     } catch (e) {
       rethrow;
     }
   }
 
-  ///update request api ============
-
   @override
-  Future<dynamic> updateApi(payload, url, BuildContext context) async {
+  Future<dynamic> putRequest(String url,
+      {Map<String, String>? headers, Map<String, dynamic>? body}) async {
     try {
       final response = await http.put(
         Uri.parse(url),
-        body: payload,
+        headers: headers,
+        body: body != null ? jsonEncode(body) : null,
       );
-      return returnResponse(response);
+      return _handleResponse(response);
     } catch (e) {
       rethrow;
     }
   }
 
-  ///delete request api ============
   @override
-  Future<dynamic> deleteApi(url, payload, BuildContext context) async {
+  Future<dynamic> deleteRequest(String url,
+      {Map<String, String>? headers}) async {
     try {
-      final response = await http.delete(Uri.parse(url), headers: payload);
-      return returnResponse(response);
+      final response = await http.delete(Uri.parse(url), headers: headers);
+      return _handleResponse(response);
     } catch (e) {
       rethrow;
     }
   }
 
-  dynamic returnResponse(http.Response response) {
-    switch (response.statusCode) {
-      case 200 || 201 || 202:
-        return convert.jsonDecode(response.body);
-      case 400 || 401 || 402 || 403 || 404:
-        throw InvalidUrlException();
-      case 500:
-        throw ServerException();
-      default:
-        throw FetchDataException(
-            'Error while communication with server status code: ${response.statusCode}');
+  dynamic _handleResponse(http.Response response) {
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception(
+          'Error: ${response.statusCode}, Message: ${response.body}');
     }
   }
 }
