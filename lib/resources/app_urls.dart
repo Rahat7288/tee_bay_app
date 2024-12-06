@@ -12,4 +12,8 @@ class AppUrls {
 
   ///rental related APIS============
   static const String rentalPurchases = "$baseUrl/transactions/rentals/";
+
+  ///test api
+  static const String testBase = "https://jsonplaceholder.typicode.com";
+  static const String testApi = "$testBase/todos";
 }

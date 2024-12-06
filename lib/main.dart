@@ -8,6 +8,7 @@ import 'features/auth/views/login_screen.dart';
 import 'features/create_product/view_models/cubits/progress_cubit.dart';
 import 'features/create_product/view_models/services/form_list.dart';
 import 'features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart';
+import 'features/my_cart/view_models/post_cubit/post_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => HomeScreenCubit()),
           BlocProvider(create: (context) => LoginCubit()),
           BlocProvider(create: (context) => SignupCubit()),
+          BlocProvider(create: (context) => PostCubit()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
