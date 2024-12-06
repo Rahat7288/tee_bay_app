@@ -1,6 +1,5 @@
 import 'dart:convert' as convert;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,41 +7,58 @@ import '../app_exceptions/app_exceptions.dart';
 import 'base_api_services.dart';
 
 class NetworkApiServicesHttp extends BasApiServices {
+  ///get request api ============
   @override
-  Future deleteApi(url, BuildContext context) {
-    // TODO: implement deleteApi
-    throw UnimplementedError();
-  }
-
-  @override
-  Future getApi(String url, data, BuildContext context) {
-    // TODO: implement getApi
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<http.Response> postApi(payload, url, BuildContext context) async {
-    if (kDebugMode) {
-      print('post api statuscode $payload');
-      print('url $url');
-    }
-
-    http.Response response;
+  Future<dynamic> getApi(String url, data, BuildContext context) async {
     try {
-      response = await http.post(Uri.parse(url), body: payload);
-      if (kDebugMode) {
-        print('response ${response.statusCode}');
-      }
+      final response = await http.get(
+        Uri.parse(url),
+        headers: data,
+      );
+      return returnResponse(response);
     } catch (e) {
-      throw e.toString();
+      rethrow;
     }
-    return response;
   }
 
+  ///post request api ============
   @override
-  Future updateApi(payload, url, BuildContext context) {
-    // TODO: implement updateApi
-    throw UnimplementedError();
+  Future<dynamic> postApi(payload, url, BuildContext context) async {
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        body: payload,
+      );
+      return returnResponse(response);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  ///update request api ============
+
+  @override
+  Future<dynamic> updateApi(payload, url, BuildContext context) async {
+    try {
+      final response = await http.put(
+        Uri.parse(url),
+        body: payload,
+      );
+      return returnResponse(response);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  ///delete request api ============
+  @override
+  Future<dynamic> deleteApi(url, payload, BuildContext context) async {
+    try {
+      final response = await http.delete(Uri.parse(url), headers: payload);
+      return returnResponse(response);
+    } catch (e) {
+      rethrow;
+    }
   }
 
   dynamic returnResponse(http.Response response) {

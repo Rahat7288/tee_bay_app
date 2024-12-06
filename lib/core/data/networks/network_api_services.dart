@@ -72,7 +72,11 @@ class NetworkApiServices extends BasApiServices {
   }
 
   @override
-  Future deleteApi(url, BuildContext context) async {
+  Future deleteApi(
+    url,
+    payload,
+    BuildContext context,
+  ) async {
     if (kDebugMode) {
       print(url);
     }
