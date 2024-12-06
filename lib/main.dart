@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tee_bay_app/services/device_utils/file_picker/file_picker_cubit.dart';
 
 import 'core/data/local_storage/storage_service.dart';
 import 'features/auth/view_models/login_cubit/login_cubit.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => LoginCubit()),
           BlocProvider(create: (context) => SignupCubit()),
           BlocProvider(create: (context) => PostCubit()),
+          BlocProvider(create: (context) => FilePickerCubit()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
