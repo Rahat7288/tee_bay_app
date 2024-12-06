@@ -9,4 +9,7 @@ class AppUrls {
 
   ///purchases related APIS============
   static const String transactionPurchases = "$baseUrl/transactions/purchases/";
+
+  ///rental related APIS============
+  static const String rentalPurchases = "$baseUrl/transactions/rentals/";
 }
