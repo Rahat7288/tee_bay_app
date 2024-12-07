@@ -27,7 +27,7 @@ List<ProductModel> products = [
     rentalPrice: '.15',
   ),
   ProductModel(
-    title: 'TABLE',
+    title: 'CHAIR',
     category: ['FURNITURE', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -36,7 +36,7 @@ List<ProductModel> products = [
     rentalPrice: '.15',
   ),
   ProductModel(
-    title: 'TABLE',
+    title: 'PHONE',
     category: ['FURNITURE', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -45,8 +45,8 @@ List<ProductModel> products = [
     rentalPrice: '.15',
   ),
   ProductModel(
-    title: 'TABLE',
-    category: ['FURNITURE', 'HOME APPLIANCES'],
+    title: 'PHONE',
+    category: ['ELECTRONICS', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     productImage: '',
@@ -54,8 +54,8 @@ List<ProductModel> products = [
     rentalPrice: '.15',
   ),
   ProductModel(
-    title: 'TABLE',
-    category: ['FURNITURE', 'HOME APPLIANCES'],
+    title: 'TABLET',
+    category: ['ELECTRONICS', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     productImage: '',
@@ -83,8 +83,8 @@ List<ProductModel> products = [
 ];
 List<ProductModel> myProducts = [
   ProductModel(
-    title: 'TABLE',
-    category: ['FURNITURE', 'HOME APPLIANCES'],
+    title: 'TABLET',
+    category: ['ELECTRONICS', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     productImage: '',
@@ -92,7 +92,7 @@ List<ProductModel> myProducts = [
     rentalPrice: '.15',
   ),
   ProductModel(
-    title: 'TABLE',
+    title: 'PHONE',
     category: ['FURNITURE', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -121,7 +121,7 @@ List<ProductModel> myProducts = [
 ];
 List<ProductModel> soldProducts = [
   ProductModel(
-    title: 'TABLE',
+    title: 'PHONE',
     category: ['FURNITURE', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -141,7 +141,16 @@ List<ProductModel> soldProducts = [
 ];
 List<ProductModel> rentProducts = [
   ProductModel(
-    title: 'TABLE',
+    title: 'TABLET',
+    category: ['ELECTRONICS', 'HOME APPLIANCES'],
+    description:
+        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    productImage: '',
+    price: '\$ 200',
+    rentalPrice: '.15',
+  ),
+  ProductModel(
+    title: 'PHONE',
     category: ['FURNITURE', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -150,17 +159,8 @@ List<ProductModel> rentProducts = [
     rentalPrice: '.15',
   ),
   ProductModel(
-    title: 'TABLE',
-    category: ['FURNITURE', 'HOME APPLIANCES'],
-    description:
-        "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    productImage: '',
-    price: '\$ 200',
-    rentalPrice: '.15',
-  ),
-  ProductModel(
-    title: 'TABLE',
-    category: ['FURNITURE', 'HOME APPLIANCES'],
+    title: 'TABLET',
+    category: ['ELECTRONICS', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     productImage: '',
@@ -170,8 +170,8 @@ List<ProductModel> rentProducts = [
 ];
 List<ProductModel> boughtProducts = [
   ProductModel(
-    title: 'TABLE',
-    category: ['FURNITURE', 'HOME APPLIANCES'],
+    title: 'TABLET',
+    category: ['ELECTRONICS', 'HOME APPLIANCES'],
     description:
         "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     productImage: '',

@@ -16,8 +16,10 @@ Widget myProductCart({required BuildContext context, ProductModel? products}) {
   String views = 'Views';
   return GestureDetector(
     onTap: () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => EditProductScreen()));
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => EditProductScreen(
+                product: products!,
+              )));
     },
     child: Container(
       margin: const EdgeInsets.symmetric(horizontal: 14),
