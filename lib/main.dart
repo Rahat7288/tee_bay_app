@@ -4,14 +4,14 @@ import 'package:tee_bay_app/services/device_utils/file_picker/file_picker_cubit.
 import 'package:tee_bay_app/services/device_utils/local_auth/local_auth_cubit.dart';
 
 import 'core/data/local_storage/storage_service.dart';
-import 'features/auth/view_models/login_cubit/login_cubit.dart';
-import 'features/auth/view_models/signup_cubit/signup_cubit.dart';
-import 'features/auth/views/login_screen.dart';
-import 'features/create_product/view_models/create_product_view_model/create_product_cubit.dart';
-import 'features/create_product/view_models/cubits/progress_cubit.dart';
-import 'features/create_product/view_models/services/form_list.dart';
-import 'features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart';
-import 'features/my_cart/view_models/post_cubit/post_cubit.dart';
+import 'features/auth/domain/view_models/login_cubit/login_cubit.dart';
+import 'features/auth/domain/view_models/signup_cubit/signup_cubit.dart';
+import 'features/auth/presentation/login_screen.dart';
+import 'features/create_product/domain/view_models/create_product_view_model/create_product_cubit.dart';
+import 'features/create_product/domain/view_models/cubits/progress_cubit.dart';
+import 'features/create_product/domain/view_models/services/form_list.dart';
+import 'features/home_screen/domain/view_models/home_screen_cubit/home_screen_cubit.dart';
+import 'features/my_cart/domain/view_models/post_cubit/post_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,10 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:tee_bay_app/features/auth/models/login_model/login_response_model.dart';
-import 'package:tee_bay_app/features/auth/repositories/auth_repository/auth_repository_impl.dart';
-import 'package:tee_bay_app/features/auth/view_models/login_cubit/login_cubit.dart';
-import 'package:tee_bay_app/features/auth/view_models/login_cubit/login_state.dart';
+import 'package:tee_bay_app/features/auth/data/models/login_model/login_response_model.dart';
+import 'package:tee_bay_app/features/auth/data/repository_impl/auth_repository_impl.dart';
+import 'package:tee_bay_app/features/auth/domain/view_models/login_cubit/login_cubit.dart';
+import 'package:tee_bay_app/features/auth/domain/view_models/login_cubit/login_state.dart';
 import 'package:test/test.dart';
 
 class MockAuthService extends Mock implements AuthRepositoryImpl {}
