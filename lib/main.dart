@@ -7,6 +7,7 @@ import 'core/data/local_storage/storage_service.dart';
 import 'features/auth/view_models/login_cubit/login_cubit.dart';
 import 'features/auth/view_models/signup_cubit/signup_cubit.dart';
 import 'features/auth/views/login_screen.dart';
+import 'features/create_product/view_models/create_product_view_model/create_product_cubit.dart';
 import 'features/create_product/view_models/cubits/progress_cubit.dart';
 import 'features/create_product/view_models/services/form_list.dart';
 import 'features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => PostCubit()),
           BlocProvider(create: (context) => FilePickerCubit()),
           BlocProvider(create: (context) => LocalAuhtCubit()),
+          BlocProvider(create: (context) => CreateProductCubit()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
