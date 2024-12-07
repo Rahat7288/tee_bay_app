@@ -60,17 +60,18 @@ class StepFourForm extends StatelessWidget {
                 height: 20,
               ),
               state.imageFile != null
-                  ? Container(
-                      height: 400,
-                      width: MediaQuery.of(context).size.width * .7,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(14),
-                        child: Image.file(
-                          state.imageFile as File,
-                          fit: BoxFit.cover,
+                  ? Expanded(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * .7,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Image.file(
+                            state.imageFile as File,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     )
