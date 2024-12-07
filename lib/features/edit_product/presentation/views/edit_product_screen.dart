@@ -10,6 +10,7 @@ class EditProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'EDIT PRODUCT',
           style: TStyle.subTitle(color: AppColor.titleTextColor),
