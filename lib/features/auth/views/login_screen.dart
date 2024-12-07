@@ -7,6 +7,7 @@ import 'package:tee_bay_app/core/text_style/text_style.dart';
 import '../../../resources/reusable_widgets/buttons/wide_button.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_password_field.dart';
 import '../../../resources/reusable_widgets/text_inputs/custom_text_field.dart';
+import '../../../services/device_utils/local_auth/local_auth_cubit.dart';
 import '../../../services/utils/utils.dart';
 import '../../home_screen/views/home_screen.dart';
 import '../view_models/login_cubit/login_cubit.dart';
@@ -83,21 +84,53 @@ class _LogInScreenState extends State<LogInScreen> {
                     const SizedBox(
                       height: 50,
                     ),
-                    wideButton(
-                      press: () {
-                        if (_loginForm.currentState!.validate()) {
-                          final email = _inputController.text;
-                          final password = _passWordController.text;
-                          context
-                              .read<LoginCubit>()
-                              .login(email, password, context);
-                        }
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => HomeScreen()));
-                      },
-                      buttonName: 'LOGIN',
-                      backgroundColor: AppColor.primaryButtonColor,
-                      forgroundColor: AppColor.buttonTextColor,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        wideButton(
+                          press: () {
+                            if (_loginForm.currentState!.validate()) {
+                              final email = _inputController.text;
+                              final password = _passWordController.text;
+                              context
+                                  .read<LoginCubit>()
+                                  .login(email, password, context);
+                            }
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HomeScreen()));
+                          },
+                          buttonName: 'LOGIN',
+                          backgroundColor: AppColor.primaryButtonColor,
+                          forgroundColor: AppColor.buttonTextColor,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        BlocConsumer<LocalAuhtCubit, bool>(
+                          listener: (context, isAuthenticated) {
+                            if (isAuthenticated) {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                            } else if (!isAuthenticated) {
+                              Utils.customSnackBar(
+                                  context: context,
+                                  snackText: 'Authentication Failed');
+                            }
+                          },
+                          builder: (context, state) {
+                            return InkWell(
+                              onTap: () {
+                                context.read<LocalAuhtCubit>().authenticate();
+                              },
+                              child: const SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: Icon(Icons.lock),
+                              ),
+                            );
+                          },
+                        )
+                      ],
                     ),
                     const SizedBox(
                       height: 20,
