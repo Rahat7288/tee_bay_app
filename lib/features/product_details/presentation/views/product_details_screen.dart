@@ -18,6 +18,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'PRODUCT DETAILS',
           style: TStyle.subTitle(color: AppColor.titleTextColor),
