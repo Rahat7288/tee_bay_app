@@ -122,10 +122,22 @@ class _LogInScreenState extends State<LogInScreen> {
                               onTap: () {
                                 context.read<LocalAuhtCubit>().authenticate();
                               },
-                              child: const SizedBox(
+                              child: Container(
                                 height: 50,
-                                width: 50,
-                                child: Icon(Icons.lock),
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    width: 3,
+                                    color: AppColor.borderColor,
+                                    style: BorderStyle.solid,
+                                  ),
+                                  borderRadius: BorderRadius.circular(14),
+                                ),
+                                child: const ImageIcon(
+                                  AssetImage(
+                                    'assets/icons/biometric.png',
+                                  ),
+                                ),
                               ),
                             );
                           },
