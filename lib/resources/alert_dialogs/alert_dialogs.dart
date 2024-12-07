@@ -15,7 +15,7 @@ class AlertDialogs extends StatelessWidget {
     return AlertDialog(
       insetPadding: const EdgeInsets.all(10),
       content: SizedBox(
-        height: mHeight * .2,
+        height: mHeight * .4,
         width: mWidth,
         child: child,
       ),

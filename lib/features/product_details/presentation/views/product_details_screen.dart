@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tee_bay_app/features/product_details/presentation/views/widgets/custom_date_picker.dart';
 
 import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
+import '../../../../resources/alert_dialogs/alert_dialogs.dart';
 import '../../../../resources/reusable_widgets/buttons/wide_button.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -72,7 +74,12 @@ class ProductDetailsScreen extends StatelessWidget {
         children: [
           wideButton(
             width: 100.0,
-            press: () {},
+            press: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const AlertDialogs(
+                child: CustomDatePicker(),
+              ),
+            ),
             buttonName: 'Rent',
             backgroundColor: AppColor.primaryButtonColor,
             forgroundColor: AppColor.buttonTextColor,
@@ -82,7 +89,12 @@ class ProductDetailsScreen extends StatelessWidget {
           ),
           wideButton(
             width: 100.0,
-            press: () {},
+            press: () => showDialog(
+              context: context,
+              builder: (BuildContext context) => const AlertDialogs(
+                child: CustomDatePicker(),
+              ),
+            ),
             buttonName: 'Buy',
             backgroundColor: AppColor.primaryButtonColor,
             forgroundColor: AppColor.buttonTextColor,
