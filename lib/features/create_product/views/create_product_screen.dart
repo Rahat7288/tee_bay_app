@@ -22,6 +22,7 @@ class CreateProductScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
             'CREATE PRODUCT',
             style: TStyle.subTitle(color: AppColor.titleTextColor),
