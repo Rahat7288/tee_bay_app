@@ -118,7 +118,9 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
                     children: [
                       wideButton(
                         width: 150.0,
-                        press: () {},
+                        press: () {
+                          Navigator.of(context).pop();
+                        },
                         buttonName: 'Go Back',
                         backgroundColor: AppColor.redButtonColor,
                         forgroundColor: AppColor.buttonTextColor,
@@ -128,7 +130,9 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
                       ),
                       wideButton(
                         width: 150.0,
-                        press: () {},
+                        press: () {
+                          Navigator.of(context).pop();
+                        },
                         buttonName: 'Confirm',
                         backgroundColor: AppColor.primaryButtonColor,
                         forgroundColor: AppColor.buttonTextColor,
