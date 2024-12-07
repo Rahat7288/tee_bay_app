@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multi_dropdown/multi_dropdown.dart';
 
 import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
+import '../../view_models/create_product_view_model/create_product_cubit.dart';
 
 class StepTwoForm extends StatelessWidget {
   const StepTwoForm({super.key});
@@ -85,6 +87,9 @@ class StepTwoForm extends StatelessWidget {
               },
               onSelectionChange: (selectedItems) {
                 debugPrint("OnSelectionChange: $selectedItems");
+                context
+                    .read<CreateProductCubit>()
+                    .updateFormData("category", selectedItems);
               },
             ),
           ),

@@ -17,7 +17,6 @@ class NetworkApiServices extends BasApiServices {
           return status != 401 && status! < 550;
         },
         queryParameters: query,
-        baseUrl: "",
         headers: {
           "Accept": "application/json",
           "Content-type": "application/json",
@@ -61,6 +60,10 @@ class NetworkApiServices extends BasApiServices {
     try {
       final response = await dio.post(url, data: payload);
 
+      if (kDebugMode) {
+        print("post response${response.statusCode}");
+      }
+
       responseJson = returnResponse(response, context);
     } catch (e) {
       throw 'Post APi error : ${e.toString()}';
@@ -69,7 +72,11 @@ class NetworkApiServices extends BasApiServices {
   }
 
   @override
-  Future deleteApi(url, BuildContext context) async {
+  Future deleteApi(
+    url,
+    payload,
+    BuildContext context,
+  ) async {
     if (kDebugMode) {
       print(url);
     }

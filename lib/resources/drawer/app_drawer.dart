@@ -5,6 +5,7 @@ import 'package:tee_bay_app/core/app_theme/app_colors.dart';
 import 'package:tee_bay_app/core/text_style/text_style.dart';
 
 import '../../features/home_screen/view_models/home_screen_cubit/home_screen_cubit.dart';
+import '../../features/my_cart/view/my_cart.dart';
 import '../reusable_widgets/buttons/wide_button.dart';
 
 ///Custom app drawer for home screen appBar.
@@ -98,7 +99,10 @@ Widget appDrawer({required BuildContext context}) => Container(
 
                 ///custom button to navigate user on my cart screen
                 wideButton(
-                  press: () {},
+                  press: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => MyCart()));
+                  },
                   width: MediaQuery.of(context).size.width,
                   buttonName: 'My Cart',
                   backgroundColor: AppColor.primaryButtonColor,

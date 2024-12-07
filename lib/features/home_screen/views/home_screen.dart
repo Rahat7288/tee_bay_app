@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
             child: appDrawer(context: context),
           ),
           appBar: AppBar(
+            centerTitle: true,
             title: Text(
               ///managing app title based on user preference
               state.myProduct ? 'MY PRODUCT' : 'ALL PRODUCTS',

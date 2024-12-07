@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
 import '../../../../resources/reusable_widgets/text_inputs/custom_text_field.dart';
+import '../../view_models/create_product_view_model/create_product_cubit.dart';
 
 class StepFiveForm extends StatefulWidget {
   const StepFiveForm({super.key});
@@ -14,12 +16,11 @@ class StepFiveForm extends StatefulWidget {
 class _StepFiveFormState extends State<StepFiveForm> {
   @override
   Widget build(BuildContext context) {
-    final _priceController = TextEditingController();
+    final TextEditingController priceController = TextEditingController();
+    final TextEditingController rentPriceController = TextEditingController();
     const List<String> list = <String>[
       'Per day',
-      'Per Week',
-      'Per Month',
-      'Year'
+      'Per hours',
     ];
     String dropdownValue = list.first;
     return SizedBox(
@@ -37,11 +38,13 @@ class _StepFiveFormState extends State<StepFiveForm> {
             height: 50,
           ),
           CustomTextField(
-            controller: _priceController,
+            controller: priceController,
             type: TextInputType.text,
             labelText: 'Purchase Price',
             hintText: 'Purchase Price',
-            onChanged: (String value) {},
+            onChanged: (value) {
+              context.read<CreateProductCubit>().updateFormData('price', value);
+            },
           ),
           const SizedBox(
             height: 30,
@@ -58,11 +61,15 @@ class _StepFiveFormState extends State<StepFiveForm> {
           SizedBox(
             width: MediaQuery.of(context).size.width * .6,
             child: CustomTextField(
-              controller: _priceController,
+              controller: rentPriceController,
               type: TextInputType.text,
               labelText: 'Rent Price',
               hintText: 'Rent Price',
-              onChanged: (String value) {},
+              onChanged: (value) {
+                context
+                    .read<CreateProductCubit>()
+                    .updateFormData('rent', value);
+              },
             ),
           ),
           const SizedBox(
@@ -74,6 +81,9 @@ class _StepFiveFormState extends State<StepFiveForm> {
               // This is called when the user selects an item.
               setState(() {
                 dropdownValue = value!;
+                context
+                    .read<CreateProductCubit>()
+                    .updateFormData('price_unit', dropdownValue);
               });
             },
             dropdownMenuEntries:

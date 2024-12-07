@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/app_theme/app_colors.dart';
 import '../../../core/text_style/text_style.dart';
-import '../../../core/utils/utils.dart';
 import '../../../resources/reusable_widgets/buttons/small_button.dart';
+import '../../../services/utils/utils.dart';
 import '../view_models/cubits/progress_cubit.dart';
 import '../view_models/cubits/progress_state.dart';
 import '../view_models/services/form_list.dart';
@@ -22,6 +22,7 @@ class CreateProductScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
             'CREATE PRODUCT',
             style: TStyle.subTitle(color: AppColor.titleTextColor),
@@ -43,7 +44,7 @@ class CreateProductScreen extends StatelessWidget {
                 child: fromSteps[state.currentStep],
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20),
+                margin: const EdgeInsets.symmetric(vertical: 20),
                 child: Row(
                   mainAxisAlignment: state.currentStep == 0
                       ? MainAxisAlignment.center

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../views/widgets/step_five_form.dart';
-import '../../views/widgets/step_four_form.dart';
-import '../../views/widgets/step_one_form.dart';
-import '../../views/widgets/step_six_form.dart';
-import '../../views/widgets/step_three_form.dart';
-import '../../views/widgets/step_two_form.dart';
+import '../../views/widgets/category_form.dart';
+import '../../views/widgets/description_form.dart';
+import '../../views/widgets/image_form.dart';
+import '../../views/widgets/price_form.dart';
+import '../../views/widgets/submition_form.dart';
+import '../../views/widgets/title_form.dart';
 
 List<Widget> fromSteps = [
   const StepOneForm(),
