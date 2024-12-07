@@ -5,9 +5,11 @@ import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
 import '../../../../resources/alert_dialogs/alert_dialogs.dart';
 import '../../../../resources/reusable_widgets/buttons/wide_button.dart';
+import '../../../home_screen/data/models/product_model.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key});
+  const ProductDetailsScreen({super.key, required this.productModel});
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class ProductDetailsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                title,
+                productModel.title,
                 style: TStyle.title(
                   color: AppColor.titleTextColor,
                 ),
@@ -42,7 +44,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                category,
+                '${productModel.category}',
                 style: TStyle.subTitle(
                   color: AppColor.subTitleColor,
                 ),
@@ -51,7 +53,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                price,
+                productModel.price,
                 style: TStyle.subTitle(
                   color: AppColor.subTitleColor,
                 ),
@@ -60,7 +62,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                content,
+                productModel.description,
                 style: TStyle.contentText(
                   color: AppColor.contentTextColor,
                 ),

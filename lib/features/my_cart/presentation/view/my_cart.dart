@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
+import '../../../home_screen/data/models/product_model.dart';
 import '../../../home_screen/presentation/views/widgets/product_cart.dart';
 import '../../data/models/tab_models.dart';
 import '../../domain/view_models/post_cubit/post_cubit.dart';
@@ -61,31 +62,34 @@ class MyCart extends StatelessWidget {
                       children: [
                         ///Bought items list==========
                         ListView.separated(
-                          itemCount: 25,
+                          itemCount: boughtProducts.length,
                           separatorBuilder: (BuildContext context, int index) =>
                               const SizedBox(
                             height: 10,
                           ),
                           itemBuilder: (BuildContext context, int index) {
-                            return productCart(context: context);
+                            return productCart(
+                                context: context,
+                                product: boughtProducts[index]);
                           },
                         ),
 
                         ///Cold items list==========
                         ListView.separated(
-                          itemCount: 25,
+                          itemCount: soldProducts.length,
                           separatorBuilder: (BuildContext context, int index) =>
                               const SizedBox(
                             height: 10,
                           ),
                           itemBuilder: (BuildContext context, int index) {
-                            return productCart(context: context);
+                            return productCart(
+                                context: context, product: soldProducts[index]);
                           },
                         ),
 
                         ///Borrowed items list==========
                         ListView.separated(
-                          itemCount: 25,
+                          itemCount: 1,
                           separatorBuilder: (BuildContext context, int index) =>
                               const SizedBox(
                             height: 10,
@@ -97,13 +101,14 @@ class MyCart extends StatelessWidget {
 
                         ///Lent items list==========
                         ListView.separated(
-                          itemCount: 25,
+                          itemCount: rentProducts.length,
                           separatorBuilder: (BuildContext context, int index) =>
                               const SizedBox(
                             height: 10,
                           ),
                           itemBuilder: (BuildContext context, int index) {
-                            return productCart(context: context);
+                            return productCart(
+                                context: context, product: rentProducts[index]);
                           },
                         ),
                       ],
