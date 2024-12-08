@@ -12,17 +12,24 @@ class LoginCubit extends Cubit<LoginState> {
 
   final _authRepository = AuthRepositoryImpl();
 
+  ///function for login service ========
   void login(email, password, context) {
     Utils.hideKeyboard();
     if (kDebugMode) {
       print("user email $email");
     }
-    dynamic data = {
+    Map data = {
       "email": email,
       "password": password,
     };
 
-    _authRepository.login(context: context, payload: data).then((value) {
+    final Map header = {
+      "Content-Type": "application/json",
+    };
+
+    _authRepository
+        .login(context: context, payload: data, header: header)
+        .then((value) {
       emit(LoginStateLoading());
       if (kDebugMode) {
         print("login value $value");
@@ -38,4 +45,6 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginFailure(message: error.toString()));
     });
   }
+
+  ///signup or registration service ========
 }

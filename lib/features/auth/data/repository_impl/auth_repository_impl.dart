@@ -11,11 +11,10 @@ class AuthRepositoryImpl implements AuthRepository {
   final _apiService = NetworkApiServices();
   final _apiServiceHttp = NetworkApiServicesHttp();
   @override
-  Future<LoginResponseModel> login({context, payload}) async {
-    dynamic response =
-        await _apiService.postApi(payload, AppUrls.signInUrl, context);
-    // final response =
-    //     await _apiServiceHttp.postApi(payload, AppUrls.signInUrl, context);
+  Future<LoginResponseModel> login({context, payload, header}) async {
+    final response = await _apiServiceHttp.postRequest(AppUrls.signInUrl,
+        headers: header, body: payload, context: context);
+
     if (kDebugMode) {
       print('login response: $response');
     }
@@ -30,13 +29,11 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<SignupModel> signup({context, payload}) async {
-    dynamic response =
-        await _apiService.postApi(payload, AppUrls.userRegister, context);
+  Future<SignupModel> signup({context, payload, header}) async {
+    final response = await _apiServiceHttp.postRequest(AppUrls.userRegister,
+        headers: header, body: payload, context: context);
 
-    if (kDebugMode) {
-      print("signup response $response");
-    }
+    debugPrint('signup response: $response');
 
     return SignupModel.fromJson(response);
   }

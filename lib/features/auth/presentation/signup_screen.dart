@@ -162,7 +162,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               final confirmPassword =
                                   _confirmPasswordController.text;
 
-                              context.read<SignupCubit>().signup(
+                              context.read<SignupCubit>().registerUser(
                                   email,
                                   firstName,
                                   lastName,
@@ -174,11 +174,6 @@ class _SignupScreenState extends State<SignupScreen> {
                               Utils.customSnackBar(
                                   context: context,
                                   snackText: 'User Registration Successfully');
-                              // Navigator.of(context).push(
-                              // MaterialPageRoute(
-                              // builder: (context) => HomeScreen(),
-                              //),
-                              //);
                             }
                           },
                           buttonName: 'REGISTER',
