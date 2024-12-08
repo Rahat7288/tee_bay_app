@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,28 +12,37 @@ class SignupCubit extends Cubit<SignupState> {
 
   final _authRepository = AuthRepositoryImpl();
 
-  void signup(email, firstName, lastName, address, phone, password,
+  void registerUser(firstName, lastName, address, email, phone, password,
       confirmPassword, context) {
     Utils.hideKeyboard();
-
-    dynamic payload = {
-      "email": email,
-      'first_name': firstName,
-      "last_name": lastName,
+    emit(SignupLoadingState());
+    Map data = {
+      "firstName": firstName,
+      "lastName": lastName,
       "address": address,
+      "email": email,
       "phone": phone,
       "password": password,
-      "confirm_password": confirmPassword,
+      "confirmPassword": confirmPassword,
     };
 
-    _authRepository.signup(context: context, payload: payload).then((value) {
+    final Map header = {
+      "Content-Type": "application/json",
+    };
+
+    _authRepository
+        .signup(context: context, payload: data, header: header)
+        .then((value) {
+      if (kDebugMode) {
+        print("registration value $value");
+      }
       if (value != null) {
-        emit(SignupSuccessState(signupModel: value));
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+        emit(SignupSuccessState(signupModel: value));
       }
     }).onError((error, stackTrace) {
-      emit(SignupFailureState(message: error.toString()));
+      email(SignupFailureState(message: error.toString()));
     });
   }
 }
