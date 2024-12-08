@@ -8,6 +8,7 @@ import 'features/auth/domain/view_models/login_cubit/login_cubit.dart';
 import 'features/auth/domain/view_models/signup_cubit/signup_cubit.dart';
 import 'features/auth/presentation/login_screen.dart';
 import 'features/create_product/domain/view_models/create_product_view_model/create_product_cubit.dart';
+import 'features/create_product/domain/view_models/cubits/product_category_cubit.dart';
 import 'features/create_product/domain/view_models/cubits/progress_cubit.dart';
 import 'features/create_product/domain/view_models/services/form_list.dart';
 import 'features/home_screen/domain/view_models/home_screen_cubit/home_screen_cubit.dart';
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => FilePickerCubit()),
           BlocProvider(create: (context) => LocalAuhtCubit()),
           BlocProvider(create: (context) => CreateProductCubit()),
+          BlocProvider(
+              create: (context) =>
+                  ProductCategoryCubit()..getProductCategory(context: context)),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
