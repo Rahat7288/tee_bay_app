@@ -22,6 +22,11 @@ class AllProductStateLoaded extends AllProductState {
   List<Object?> get props => [productModel, errorMessage];
 }
 
+class AllProductStateEmpty extends AllProductState {
+  @override
+  List<Object?> get props => [];
+}
+
 class AllProductStateError extends AllProductState {
   final String? errorMessage;
   AllProductStateError({this.errorMessage});

@@ -16,6 +16,8 @@ class AllProductCubit extends Cubit<AllProductState> {
       if (value != null) {
         debugPrint('All Product value\n $value');
         emit(AllProductStateLoaded(productModel: value));
+      } else {
+        emit(AllProductStateEmpty());
       }
     }).onError((error, stackTrace) {
       emit(AllProductStateError(
