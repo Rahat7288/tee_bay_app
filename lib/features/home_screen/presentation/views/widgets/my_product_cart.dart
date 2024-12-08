@@ -4,9 +4,10 @@ import '../../../../../core/app_theme/app_colors.dart';
 import '../../../../../core/text_style/text_style.dart';
 import '../../../../../resources/alert_dialogs/alert_dialogs.dart';
 import '../../../../edit_product/presentation/views/edit_product_screen.dart';
+import '../../../data/models/product_model.dart';
 import 'delete_popup.dart';
 
-Widget myProductCart({required BuildContext context}) {
+Widget myProductCart({required BuildContext context, ProductModel? products}) {
   String title = 'Title';
   String subTitle = 'Category';
   String price = 'Price';
@@ -15,8 +16,10 @@ Widget myProductCart({required BuildContext context}) {
   String views = 'Views';
   return GestureDetector(
     onTap: () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => EditProductScreen()));
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => EditProductScreen(
+                product: products!,
+              )));
     },
     child: Container(
       margin: const EdgeInsets.symmetric(horizontal: 14),
@@ -38,7 +41,7 @@ Widget myProductCart({required BuildContext context}) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  products?.title ?? 'Title',
                   style: TStyle.title(),
                 ),
                 const SizedBox(
@@ -52,7 +55,12 @@ Widget myProductCart({required BuildContext context}) {
                         color: AppColor.subTitleColor,
                       ),
                     ),
-                    Text(subTitle),
+                    Text(
+                      '${products?.category[0] ?? ''} ',
+                      style: TStyle.subTitle(
+                        color: AppColor.subTitleColor,
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -66,14 +74,19 @@ Widget myProductCart({required BuildContext context}) {
                         color: AppColor.subTitleColor,
                       ),
                     ),
-                    Text(price),
+                    Text(
+                      products?.price ?? 'Price',
+                      style: TStyle.subTitle(
+                        color: AppColor.subTitleColor,
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  content,
+                  products?.description ?? '',
                   maxLines: 3,
                   textAlign: TextAlign.start,
                   overflow: TextOverflow.ellipsis,

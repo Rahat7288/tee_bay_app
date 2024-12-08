@@ -5,6 +5,7 @@ import '../../../../core/app_theme/app_colors.dart';
 import '../../../../core/text_style/text_style.dart';
 import '../../../../resources/reusable_widgets/buttons/small_button.dart';
 import '../../../../services/utils/utils.dart';
+import '../../../home_screen/presentation/views/home_screen.dart';
 import '../../domain/view_models/cubits/progress_cubit.dart';
 import '../../domain/view_models/cubits/progress_state.dart';
 import '../../domain/view_models/services/form_list.dart';
@@ -61,7 +62,10 @@ class CreateProductScreen extends StatelessWidget {
                             forgroundColor: AppColor.backGroundColor,
                           ),
                     smallButton(
-                      press: () => context.read<ProgressCubit>().nextStep(),
+                      press: () => state.currentStep + 1 == fromSteps.length
+                          ? Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomeScreen()))
+                          : context.read<ProgressCubit>().nextStep(),
                       buttonName: state.currentStep + 1 == fromSteps.length
                           ? 'Submit'
                           : 'Next',

@@ -1,6 +1,6 @@
 List<String> tabs = [
   'Bought',
-  'Slod',
+  'Sold',
   'Borrowed',
   'Lent',
 ];

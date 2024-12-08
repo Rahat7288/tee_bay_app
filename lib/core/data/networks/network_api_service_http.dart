@@ -1,12 +1,14 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 import 'base_api_service_http.dart';
 
 class NetworkApiServicesHttp extends BaseNetworkService {
   @override
-  Future<dynamic> getRequest(String url, {Map<String, String>? headers}) async {
+  Future<dynamic> getRequest(String url,
+      {Map<String, String>? headers, BuildContext? context}) async {
     try {
       final response = await http.get(Uri.parse(url), headers: headers);
       return _handleResponse(response);
@@ -17,7 +19,9 @@ class NetworkApiServicesHttp extends BaseNetworkService {
 
   @override
   Future<dynamic> postRequest(String url,
-      {Map<String, String>? headers, Map<String, dynamic>? body}) async {
+      {Map<String, String>? headers,
+      Map<String, dynamic>? body,
+      BuildContext? context}) async {
     try {
       final response = await http.post(
         Uri.parse(url),
@@ -32,7 +36,9 @@ class NetworkApiServicesHttp extends BaseNetworkService {
 
   @override
   Future<dynamic> putRequest(String url,
-      {Map<String, String>? headers, Map<String, dynamic>? body}) async {
+      {Map<String, String>? headers,
+      Map<String, dynamic>? body,
+      BuildContext? context}) async {
     try {
       final response = await http.put(
         Uri.parse(url),
@@ -47,7 +53,7 @@ class NetworkApiServicesHttp extends BaseNetworkService {
 
   @override
   Future<dynamic> deleteRequest(String url,
-      {Map<String, String>? headers}) async {
+      {Map<String, String>? headers, BuildContext? context}) async {
     try {
       final response = await http.delete(Uri.parse(url), headers: headers);
       return _handleResponse(response);

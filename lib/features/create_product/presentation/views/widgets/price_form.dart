@@ -25,73 +25,77 @@ class _StepFiveFormState extends State<StepFiveForm> {
     String dropdownValue = list.first;
     return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            'Select price',
-            style: TStyle.title(
-              color: AppColor.titleTextColor,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Select price',
+              style: TStyle.title(
+                color: AppColor.titleTextColor,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
-          CustomTextField(
-            controller: priceController,
-            type: TextInputType.text,
-            labelText: 'Purchase Price',
-            hintText: 'Purchase Price',
-            onChanged: (value) {
-              context.read<CreateProductCubit>().updateFormData('price', value);
-            },
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Text(
-            'Rent',
-            style: TStyle.subTitle(
-              color: AppColor.subTitleColor,
+            const SizedBox(
+              height: 50,
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * .6,
-            child: CustomTextField(
-              controller: rentPriceController,
+            CustomTextField(
+              controller: priceController,
               type: TextInputType.text,
-              labelText: 'Rent Price',
-              hintText: 'Rent Price',
+              labelText: 'Purchase Price',
+              hintText: 'Purchase Price',
               onChanged: (value) {
                 context
                     .read<CreateProductCubit>()
-                    .updateFormData('rent', value);
+                    .updateFormData('price', value);
               },
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          DropdownMenu<String>(
-            initialSelection: list.first,
-            onSelected: (String? value) {
-              // This is called when the user selects an item.
-              setState(() {
-                dropdownValue = value!;
-                context
-                    .read<CreateProductCubit>()
-                    .updateFormData('price_unit', dropdownValue);
-              });
-            },
-            dropdownMenuEntries:
-                list.map<DropdownMenuEntry<String>>((String value) {
-              return DropdownMenuEntry<String>(value: value, label: value);
-            }).toList(),
-          ),
-        ],
+            const SizedBox(
+              height: 30,
+            ),
+            Text(
+              'Rent',
+              style: TStyle.subTitle(
+                color: AppColor.subTitleColor,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * .6,
+              child: CustomTextField(
+                controller: rentPriceController,
+                type: TextInputType.text,
+                labelText: 'Rent Price',
+                hintText: 'Rent Price',
+                onChanged: (value) {
+                  context
+                      .read<CreateProductCubit>()
+                      .updateFormData('rent', value);
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            DropdownMenu<String>(
+              initialSelection: list.first,
+              onSelected: (String? value) {
+                // This is called when the user selects an item.
+                setState(() {
+                  dropdownValue = value!;
+                  context
+                      .read<CreateProductCubit>()
+                      .updateFormData('price_unit', dropdownValue);
+                });
+              },
+              dropdownMenuEntries:
+                  list.map<DropdownMenuEntry<String>>((String value) {
+                return DropdownMenuEntry<String>(value: value, label: value);
+              }).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

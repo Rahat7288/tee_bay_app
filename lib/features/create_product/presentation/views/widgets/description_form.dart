@@ -15,27 +15,29 @@ class StepThreeForm extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
       child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Add Description',
-              style: TStyle.title(
-                color: AppColor.titleTextColor,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Add Description',
+                style: TStyle.title(
+                  color: AppColor.titleTextColor,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            customMultilineTextField(
-              controller: descriptionController,
-              onChanged: (value) {
-                context
-                    .read<CreateProductCubit>()
-                    .updateFormData('description', value);
-              },
-            ),
-          ],
+              const SizedBox(
+                height: 50,
+              ),
+              customMultilineTextField(
+                controller: descriptionController,
+                onChanged: (value) {
+                  context
+                      .read<CreateProductCubit>()
+                      .updateFormData('description', value);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

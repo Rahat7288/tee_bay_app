@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tee_bay_app/core/app_theme/app_colors.dart';
 import 'package:tee_bay_app/core/text_style/text_style.dart';
 
+import '../../features/auth/presentation/login_screen.dart';
 import '../../features/home_screen/domain/view_models/home_screen_cubit/home_screen_cubit.dart';
 import '../../features/my_cart/presentation/view/my_cart.dart';
 import '../reusable_widgets/buttons/wide_button.dart';
@@ -120,7 +121,10 @@ Widget appDrawer({required BuildContext context}) => Container(
           Align(
             alignment: Alignment.bottomCenter,
             child: wideButton(
-              press: () {},
+              press: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => LogInScreen()));
+              },
               buttonName: 'Logout',
               backgroundColor: AppColor.redButtonColor,
               forgroundColor: AppColor.buttonTextColor,

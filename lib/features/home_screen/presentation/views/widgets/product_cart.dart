@@ -3,19 +3,22 @@ import 'package:flutter/material.dart';
 import '../../../../../core/app_theme/app_colors.dart';
 import '../../../../../core/text_style/text_style.dart';
 import '../../../../product_details/presentation/views/product_details_screen.dart';
+import '../../../data/models/product_model.dart';
 
-Widget productCart({required BuildContext context}) {
+Widget productCart({required BuildContext context, ProductModel? product}) {
   String title = 'Title';
   String subTitle = 'Category';
   String price = 'Price';
   String content = ' content content content content content content content ';
-  String postedDate = 'postedDate';
+  String postedDate = 'postedDate: ';
   String views = 'Views';
   return GestureDetector(
     onTap: () {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (contex) => const ProductDetailsScreen(),
+          builder: (contex) => ProductDetailsScreen(
+            productModel: product!,
+          ),
         ),
       );
     },
@@ -34,7 +37,7 @@ Widget productCart({required BuildContext context}) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            title,
+            product?.title ?? 'Title',
             style: TStyle.title(),
           ),
           const SizedBox(
@@ -48,7 +51,12 @@ Widget productCart({required BuildContext context}) {
                   color: AppColor.subTitleColor,
                 ),
               ),
-              Text(subTitle),
+              Text(
+                '${product?.category[0] ?? ''} ',
+                style: TStyle.subTitle(
+                  color: AppColor.subTitleColor,
+                ),
+              ),
             ],
           ),
           const SizedBox(
@@ -62,7 +70,12 @@ Widget productCart({required BuildContext context}) {
                   color: AppColor.subTitleColor,
                 ),
               ),
-              Text(price),
+              Text(
+                product?.price ?? '',
+                style: TStyle.subTitle(
+                  color: AppColor.subTitleColor,
+                ),
+              ),
             ],
           ),
           const SizedBox(
