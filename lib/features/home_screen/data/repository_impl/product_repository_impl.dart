@@ -5,7 +5,7 @@ import '../../../../core/data/networks/network_api_service_http.dart';
 import '../../domain/repositories/products_repository.dart';
 import '../models/product_model.dart';
 
-class PriductRepositoryImpl implements ProducRepository {
+class ProductRepositoryImpl implements ProducRepository {
   final _networkService = NetworkApiServicesHttp();
 
   @override
