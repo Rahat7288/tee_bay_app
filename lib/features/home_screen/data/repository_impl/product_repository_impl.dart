@@ -9,15 +9,14 @@ class PriductRepositoryImpl implements ProducRepository {
   final _networkService = NetworkApiServicesHttp();
 
   @override
-  Future deleteProduct({context, payload}) {
-    // TODO: implement deleteProduct
-    throw UnimplementedError();
-  }
-
-  @override
-  Future getMyproduct({context, payload}) {
-    // TODO: implement getMyproduct
-    throw UnimplementedError();
+  Future deleteProduct({context, payload, id}) async {
+    try {
+      final response = await _networkService.deleteRequest(AppUrls.products,
+          headers: payload);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override
@@ -49,7 +48,7 @@ class PriductRepositoryImpl implements ProducRepository {
 
   ///helps user to update own products ===============
   @override
-  Future updateProduct({context, payload, header}) async {
+  Future updateProduct({context, payload, header, id}) async {
     try {
       final response = await _networkService.putRequest(AppUrls.products,
           headers: header, body: payload);
@@ -62,8 +61,13 @@ class PriductRepositoryImpl implements ProducRepository {
   }
 
   @override
-  Future getMyProduct({context, payload}) {
-    // TODO: implement getMyProduct
-    throw UnimplementedError();
+  Future getMyProduct({context, payload, id}) async {
+    try {
+      final response = await _networkService.deleteRequest(AppUrls.products,
+          headers: payload);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
   }
 }
