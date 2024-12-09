@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../home_screen/data/models/product_model.dart';
+import '../../../../home_screen/data/models/product_model2.dart';
 
 class PurchasesProductState extends Equatable {
   @override
@@ -13,7 +13,7 @@ class PurchasesProductLoadingState extends PurchasesProductState {
 }
 
 class PurchasesProductSuccessState extends PurchasesProductState {
-  final ProductModel? product;
+  final ProductModel2? product;
   PurchasesProductSuccessState({this.product});
   @override
   List<Object?> get props => [product];
