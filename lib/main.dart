@@ -15,6 +15,7 @@ import 'features/home_screen/domain/view_models/all_product_view_model/all_produ
 import 'features/home_screen/domain/view_models/home_screen_cubit/home_screen_cubit.dart';
 import 'features/home_screen/domain/view_models/my_product_view_model/my_product_cubit.dart';
 import 'features/my_cart/domain/view_models/post_cubit/post_cubit.dart';
+import 'features/my_cart/domain/view_models/purchases_product_cubit/purchases_product_cubit.dart';
 import 'features/my_cart/domain/view_models/rental_product_cubit/rental_product_cubit.dart';
 
 void main() async {
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (context) => AllProductCubit()),
           BlocProvider(create: (context) => MyProductCubit()),
           BlocProvider(create: (context) => RentalProductCubit()),
+          BlocProvider(create: (context) => PurchasesProductCubit()),
           BlocProvider(
               create: (context) =>
                   ProductCategoryCubit()..getProductCategory(context: context)),

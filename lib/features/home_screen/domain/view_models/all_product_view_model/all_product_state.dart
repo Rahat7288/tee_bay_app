@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../data/models/product_model.dart';
+import '../../../data/models/product_model2.dart';
 
 class AllProductState extends Equatable {
   @override
@@ -13,7 +13,7 @@ class AllProductStateLoading extends AllProductState {
 }
 
 class AllProductStateLoaded extends AllProductState {
-  final ProductModel? productModel;
+  final ProductModel2? productModel;
   final String? errorMessage;
 
   AllProductStateLoaded({this.productModel, this.errorMessage});

@@ -4,6 +4,7 @@ import 'package:tee_bay_app/resources/app_urls.dart';
 import '../../../../core/data/networks/network_api_service_http.dart';
 import '../../domain/repositories/products_repository.dart';
 import '../models/product_model.dart';
+import '../models/product_model2.dart';
 
 class ProductRepositoryImpl implements ProducRepository {
   final _networkService = NetworkApiServicesHttp();
@@ -20,15 +21,15 @@ class ProductRepositoryImpl implements ProducRepository {
   }
 
   @override
-  Future<dynamic> getProducts({context, payload}) async {
+  Future<ProductModel2> getProducts({context, payload}) async {
     final List<ProductModel> _products = [];
     try {
       final response =
           await _networkService.getRequest(AppUrls.products, headers: payload);
 
-      // _products = (responsse as List).map((responsse)=> ProductModel.fromJson(responsse)).toList();
+      debugPrint('all product response $response');
 
-      return response;
+      return ProductModel2.fromJson(response);
     } catch (e) {
       rethrow;
     }
@@ -61,11 +62,11 @@ class ProductRepositoryImpl implements ProducRepository {
   }
 
   @override
-  Future getMyProduct({context, payload, id}) async {
+  Future<ProductModel2> getMyProduct({context, payload, id}) async {
     try {
       final response = await _networkService.deleteRequest(AppUrls.products,
           headers: payload);
-      return response;
+      return ProductModel2.fromJson(response);
     } catch (e) {
       rethrow;
     }
