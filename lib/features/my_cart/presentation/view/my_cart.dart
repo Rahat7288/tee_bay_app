@@ -28,7 +28,7 @@ class MyCart extends StatelessWidget {
       body: BlocBuilder<PostCubit, PostState>(
         builder: (context, state) {
           if (kDebugMode) {
-            print('priniting state $state');
+            print('printing state $state');
           }
           return DefaultTabController(
             length: tabs.length,
@@ -74,7 +74,7 @@ class MyCart extends StatelessWidget {
                           },
                         ),
 
-                        ///Cold items list==========
+                        ///Sold items list==========
                         ListView.separated(
                           itemCount: soldProducts.length,
                           separatorBuilder: (BuildContext context, int index) =>
